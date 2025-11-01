@@ -1,176 +1,176 @@
-!DOCTYPE html
-html lang=pt-BR
-head
-    meta charset=UTF-8
-    meta name=viewport content=width=device-width, initial-scale=1.0
-    titleUma Proposta... e uma Consequência!title
-    style
-         Estilos CSS Base 
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uma Proposta... e uma Consequência!</title>
+    <style>
+        /* Estilos CSS Base */
         body {
-            display flex;
-            flex-direction column;
-            justify-content center;
-            align-items center;
-            min-height 100vh;
-            margin 0;
-            font-family Arial, sans-serif;
-            background-color #282c34;
-            color white;
-            overflow hidden;
-            position relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #282c34;
+            color: white;
+            overflow: hidden;
+            position: relative;
         }
 
         .container {
-            text-align center;
-            padding 20px;
-            border-radius 10px;
-            background-color #3a3f47;
-            box-shadow 0 4px 8px rgba(0, 0, 0, 0.2);
-            position relative;
-            width 90%;
-            max-width 450px;  Um pouco maior para a nova lógica 
-            min-height 250px;
-            display flex;
-            flex-direction column;
-            justify-content space-around;
-            align-items center;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #3a3f47;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            width: 90%;
+            max-width: 450px; /* Um pouco maior para a nova lógica */
+            min-height: 250px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
         }
 
         h1 {
-            font-size 1.8em;
-            margin-bottom 30px;
-            color #f0f0f0;
-            word-break break-word;
-            padding 0 10px;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            color: #f0f0f0;
+            word-break: break-word;
+            padding: 0 10px;
         }
 
         button {
-            padding 12px 25px;
-            font-size 1.1em;
-            border none;
-            border-radius 5px;
-            cursor pointer;
-            transition transform 0.2s ease-in-out;
-            margin 0 15px;
-            user-select none;
+            padding: 12px 25px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out;
+            margin: 0 15px;
+            user-select: none;
         }
 
-        buttonhover {
-            transform translateY(-2px);
+        button:hover {
+            transform: translateY(-2px);
         }
 
         #botao-sim-principal {
-            background-color #28a745;
-            color white;
+            background-color: #28a745;
+            color: white;
         }
 
         #botao-nao-principal {
-            background-color #dc3545;
-            color white;
+            background-color: #dc3545;
+            color: white;
         }
 
-         Estilos para o Pop-up (Modal) 
+        /* Estilos para o Pop-up (Modal) */
         .modal {
-            display none;  Escondido por padrão 
-            position fixed;  Fica por cima de tudo 
-            z-index 1;  Acima de outros elementos 
-            left 0;
-            top 0;
-            width 100%;
-            height 100%;
-            overflow auto;
-            background-color rgba(0,0,0,0.6);  Fundo semi-transparente 
-            justify-content center;
-            align-items center;
+            display: none; /* Escondido por padrão */
+            position: fixed; /* Fica por cima de tudo */
+            z-index: 1; /* Acima de outros elementos */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6); /* Fundo semi-transparente */
+            justify-content: center;
+            align-items: center;
         }
 
         .modal-content {
-            background-color #4a4f57;
-            margin auto;
-            padding 30px;
-            border-radius 10px;
-            width 80%;
-            max-width 350px;
-            text-align center;
-            box-shadow 0 5px 15px rgba(0,0,0,0.3);
-            position relative;
+            background-color: #4a4f57;
+            margin: auto;
+            padding: 30px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 350px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            position: relative;
         }
 
         .modal-content h2 {
-            margin-top 0;
-            color #f0f0f0;
-            font-size 1.5em;
+            margin-top: 0;
+            color: #f0f0f0;
+            font-size: 1.5em;
         }
 
         .modal-content button {
-            margin-top 20px;
-            width 100px;
-            height 45px;
+            margin-top: 20px;
+            width: 100px;
+            height: 45px;
         }
 
         #modal-botao-sim {
-            background-color #dc3545;  Vermelho para 'Sim' na pop-up de recusa 
-            color white;
-            margin-right 15px;
+            background-color: #dc3545; /* Vermelho para 'Sim' na pop-up de recusa */
+            color: white;
+            margin-right: 15px;
         }
 
         #modal-botao-nao {
-            background-color #28a745;  Verde para 'Não' na pop-up de recusa 
-            color white;
+            background-color: #28a745; /* Verde para 'Não' na pop-up de recusa */
+            color: white;
         }
 
-         Estilo para a mensagem final 
+        /* Estilo para a mensagem final */
         #mensagem-final {
-            display none;  Escondida por padrão 
-            position fixed;
-            top 50%;
-            left 50%;
-            transform translate(-50%, -50%);
-            background-color #28a745;
-            color white;
-            padding 30px 40px;
-            border-radius 10px;
-            font-size 1.8em;
-            font-weight bold;
-            text-align center;
-            box-shadow 0 0 20px rgba(0, 255, 0, 0.5);
-            z-index 999;
-            animation fadeIn 1s forwards;  Animação para aparecer 
+            display: none; /* Escondida por padrão */
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #28a745;
+            color: white;
+            padding: 30px 40px;
+            border-radius: 10px;
+            font-size: 1.8em;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            z-index: 999;
+            animation: fadeIn 1s forwards; /* Animação para aparecer */
         }
 
         @keyframes fadeIn {
-            from { opacity 0; transform translate(-50%, -60%); }
-            to { opacity 1; transform translate(-50%, -50%); }
+            from { opacity: 0; transform: translate(-50%, -60%); }
+            to { opacity: 1; transform: translate(-50%, -50%); }
         }
 
-    style
-head
-body
+    </style>
+</head>
+<body>
 
-    div class=container id=main-container
-        h1você quer fuder comigoh1
-        div
-            button id=botao-sim-principalSimbutton
-            button id=botao-nao-principalNãobutton
-        div
-    div
+    <div class="container" id="main-container">
+        <h1>você quer fuder comigo?</h1>
+        <div>
+            <button id="botao-sim-principal">Sim</button>
+            <button id="botao-nao-principal">Não</button>
+        </div>
+    </div>
 
-    div id=rejectionModal class=modal
-        div class=modal-content
-            h2Tem certezah2
-            div
-                button id=modal-botao-simSimbutton
-                button id=modal-botao-naoNãobutton
-            div
-        div
-    div
+    <div id="rejectionModal" class="modal">
+        <div class="modal-content">
+            <h2>Tem certeza?</h2>
+            <div>
+                <button id="modal-botao-sim">Sim</button>
+                <button id="modal-botao-nao">Não</button>
+            </div>
+        </div>
+    </div>
 
-    div id=mensagem-final
+    <div id="mensagem-final">
         Agora meu Menino tem algo marcado!
-    div
+    </div>
 
-    script
-         Referências aos elementos HTML
+    <script>
+        // Referências aos elementos HTML
         const mainContainer = document.getElementById('main-container');
         const botaoSimPrincipal = document.getElementById('botao-sim-principal');
         const botaoNaoPrincipal = document.getElementById('botao-nao-principal');
@@ -181,49 +181,49 @@ body
 
         const mensagemFinal = document.getElementById('mensagem-final');
 
-         --- Funções ---
+        // --- Funções ---
 
         function fecharJanelaPrincipal() {
-            mainContainer.style.display = 'none';  Esconde a janela principal
+            mainContainer.style.display = 'none'; // Esconde a janela principal
         }
 
         function mostrarMensagemFinal() {
-            fecharJanelaPrincipal();  Garante que a janela principal esteja escondida
-            mensagemFinal.style.display = 'block';  Mostra a mensagem final
+            fecharJanelaPrincipal(); // Garante que a janela principal esteja escondida
+            mensagemFinal.style.display = 'block'; // Mostra a mensagem final
         }
 
-         --- Event Listeners ---
+        // --- Event Listeners ---
 
-         Quando clicar no 'Sim' da janela principal
-        botaoSimPrincipal.addEventListener('click', () = {
-            alert(Ótima escolha! 😉);  Alerta simples como no exemplo anterior
-            fecharJanelaPrincipal();  Esconde a janela principal
-             Você pode adicionar um redirecionamento ou outra ação aqui
+        // Quando clicar no 'Sim' da janela principal
+        botaoSimPrincipal.addEventListener('click', () => {
+            alert("Ótima escolha! 😉"); // Alerta simples como no exemplo anterior
+            fecharJanelaPrincipal(); // Esconde a janela principal
+            // Você pode adicionar um redirecionamento ou outra ação aqui
         });
 
-         Quando clicar no 'Não' da janela principal
-        botaoNaoPrincipal.addEventListener('click', () = {
-            rejectionModal.style.display = 'flex';  Mostra o pop-up de certeza
+        // Quando clicar no 'Não' da janela principal
+        botaoNaoPrincipal.addEventListener('click', () => {
+            rejectionModal.style.display = 'flex'; // Mostra o pop-up de certeza
         });
 
-         Quando clicar no 'Sim' do pop-up (confirmando a recusa principal)
-        modalBotaoSim.addEventListener('click', () = {
-            rejectionModal.style.display = 'none';  Esconde o pop-up
-            mostrarMensagemFinal();  Mostra a mensagem final e esconde a janela principal
+        // Quando clicar no 'Sim' do pop-up (confirmando a recusa principal)
+        modalBotaoSim.addEventListener('click', () => {
+            rejectionModal.style.display = 'none'; // Esconde o pop-up
+            mostrarMensagemFinal(); // Mostra a mensagem final e esconde a janela principal
         });
 
-         Quando clicar no 'Não' do pop-up (voltando atrás na recusa)
-        modalBotaoNao.addEventListener('click', () = {
-            rejectionModal.style.display = 'none';  Apenas esconde o pop-up, a janela principal permanece
+        // Quando clicar no 'Não' do pop-up (voltando atrás na recusa)
+        modalBotaoNao.addEventListener('click', () => {
+            rejectionModal.style.display = 'none'; // Apenas esconde o pop-up, a janela principal permanece
         });
 
-         Opcional Fechar o modal se clicar fora dele
-        window.addEventListener('click', (event) = {
+        // Opcional: Fechar o modal se clicar fora dele
+        window.addEventListener('click', (event) => {
             if (event.target == rejectionModal) {
                 rejectionModal.style.display = 'none';
             }
         });
 
-    script
-body
-html
+    </script>
+</body>
+</html>
